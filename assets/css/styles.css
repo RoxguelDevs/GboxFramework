@@ -1,0 +1,28 @@
+form.form-inline .btn {
+	/*margin-bottom: 10px;*/
+}
+form.form-inline .form-group {
+	margin-right: 15px;
+}
+form.form-inline .form-group:last-of-type {
+	margin-right: 0px;
+}
+form.form-inline .alert {
+	margin-bottom: 0;
+	padding: 5px 15px;
+}
+form textarea {
+	resize: none;
+	height: 150px;
+	min-height: 150px;
+	max-height: 150px;
+}
+form div.panel-footer .pull-left .form-group .checkbox,
+form div.panel-footer .pull-right .form-group .checkbox {
+	margin-top: 7px;
+}
+.hint-block {
+	margin-top: -5px; 
+	margin-bottom: 0px; 
+	font-size: 0.9em;
+}

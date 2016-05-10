@@ -1,0 +1,14 @@
+{
+	"menu-home": "Home",
+	"menu-docs": "Docs",
+	"menu-contact": "Contact",
+	"menu-json": "JSON's data",
+	"menu-new-user": "New user",
+	"current-language": "Current language",
+	"current-timezone": "Current timezone",
+	"contact-info": "Contact information",
+	"lang-es": "Spanish",
+	"lang-en": "English",
+	"welcome": "Welcome to Gbox Framework for PHP.",
+	"page-title-contact": "Contact webpage"
+}
