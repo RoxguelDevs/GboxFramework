@@ -6,7 +6,7 @@ Gbox is a powerful framework on PHP. It is currently under development.
 
 * Gbox is a powerful framework on PHP. It is currently under development.
 * Phase BETA.
-* [Watch demonstration](http://gbox.roxguel.com/)
+* [See demonstration](http://gbox.roxguel.com/)
 
 ## Installation ##
 
