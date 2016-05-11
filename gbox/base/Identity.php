@@ -1,7 +1,7 @@
 <?php
 namespace Gbox\base;
 use Gbox;
-abstract class Identity extends Component implements IndentityInterface
+abstract class Identity extends Component implements IdentityInterface
 {
 	public $isGuest = true;
 	public $id = null;
