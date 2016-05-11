@@ -45,10 +45,11 @@ $config = [
 	],
 ];
 
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+defined('GBOX_DEBUG') or define('GBOX_DEBUG', false);
 if (GBOX_DEBUG)
 {
-	error_reporting(E_ALL ^ E_NOTICE);
-	ini_set('display_errors', '1');
     $config['modules']['debug'] = [
         'class' => 'app\debug\Module',
     ];
