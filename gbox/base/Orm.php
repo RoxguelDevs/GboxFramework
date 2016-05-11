@@ -43,7 +43,7 @@ abstract class Orm implements \ArrayAccess
 			/*=============================
 			=            DEBUG            =
 			=============================*/
-			if (\Gbox::$components->debug)
+			if (property_exists(Gbox::$components, 'debug'))
 			\Gbox::$components->debug->saveReportOrm([
 				'orm' => static::className(),
 				'message' => 'Connected.',
@@ -154,7 +154,7 @@ abstract class Orm implements \ArrayAccess
 		/*=============================
 		=            DEBUG            =
 		=============================*/
-		if (\Gbox::$components->debug)
+		if (property_exists(Gbox::$components, 'debug'))
 		\Gbox::$components->debug->saveReportOrm([
 			'orm' => static::className(),
 			'message' => 'Before query.',

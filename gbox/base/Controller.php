@@ -29,24 +29,25 @@ abstract class Controller {
 					}
 					if (in_array(strtolower(Gbox::getRequest()->getAction()), array_map('strtolower', $access['actions'])))
 					{
-						if (is_array($access['roles']))
-						{
-							foreach ($access['roles'] as $alias => $role)
-							{
-								if ($role === 'guest')
+						if (array_key_exists('roles', $access)) {
+							if (is_array($access['roles'])) {
+								foreach ($access['roles'] as $alias => $role)
 								{
-									if ($access['allow'] !== Gbox::$components->{$alias}->isGuest)
+									if ($role === 'guest')
 									{
-										throw new ForbiddenHttpException("No tiene privilegios para acceder a este directorio.");
+										if ($access['allow'] !== Gbox::$components->{$alias}->isGuest)
+										{
+											throw new ForbiddenHttpException("No tiene privilegios para acceder a este directorio.");
+										}
 									}
-								}
-								else if ($role === 'logged')
-								{
-									if ($access['allow'] !== Gbox::$components->{$alias}->isGuest)
+									else if ($role === 'logged')
 									{
-										throw new ForbiddenHttpException("No tiene privilegios para acceder a este directorio.");
-									}
+										if ($access['allow'] !== Gbox::$components->{$alias}->isGuest)
+										{
+											throw new ForbiddenHttpException("No tiene privilegios para acceder a este directorio.");
+										}
 
+									}
 								}
 							}
 						}

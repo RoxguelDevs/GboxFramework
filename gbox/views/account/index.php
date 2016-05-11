@@ -6,7 +6,7 @@ use Gbox\helpers\Form;
 ?>
 <div class="row">
 	<div class="col-md-6">
-		<?=$msg ? Bootstrap::Alert($msg, $modelAccount->hasErrors() ? 'danger' : 'success') : ''?>
+		<?=isset($msg) ? Bootstrap::Alert($msg, $modelAccount->hasErrors() ? 'danger' : 'success') : ''?>
 		<?php $form = new Form([
 			'method' => 'post',
 		]); ?>

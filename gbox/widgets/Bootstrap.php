@@ -26,7 +26,7 @@ class Bootstrap extends Widget
 				foreach ($items as $item)
 				{
 					if (!is_array($item)) continue;
-					$html .= '<li class="' . $item['class'] . '"><a href="' . $item['url'] . '"' . (!empty($item['target']) ? 'target="' . $item['target'] . '"' : '') . '>' . $item['name'] . '</a></li>';
+					$html .= '<li class="' . (array_key_exists('class', $item) ? $item['class'] : '') . '"><a href="' . (array_key_exists('url', $item) ? $item['url'] : '#') . '"' . (!empty($item['target']) ? 'target="' . $item['target'] . '"' : '') . '>' . $item['name'] . '</a></li>';
 				}
 			$html .= '</ul>';
 		$html .= '</div>';
