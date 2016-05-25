@@ -1,7 +1,7 @@
 <?php
 namespace Gbox\base;
 use Gbox;
-interface IndentityInterface
+interface IdentityInterface
 {
     public static function findIdentity ($id);
     public static function findIdentityByAccessToken ($token, $type = null);
