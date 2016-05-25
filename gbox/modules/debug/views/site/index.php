@@ -6,7 +6,7 @@ use \Gbox\base\Session;
 	<h3>File: <?=Session::get('files-debug-current')?></h3>
 	<div class="col-md-3">
 		<div class="list-group">
-			<a href="<?=Url::to('@web-module', ['id' => Session::get('files-debug-current')])?>" class="list-group-item <?php if (empty(\Gbox::getRequest()->get('type'))) echo 'active'; ?>">Summary</a>
+			<a href="<?=Url::to('@web-module', ['id' => Session::get('files-debug-current')])?>" class="list-group-item <?php if (\Gbox::getRequest()->get('type') == '') echo 'active'; ?>">Summary</a>
 			<a href="<?=Url::to('@web-module', ['id' => Session::get('files-debug-current'), 'type' => 'router'])?>" class="list-group-item <?php if (\Gbox::getRequest()->get('type') == 'router') echo 'active'; ?>">Router</a>
 			<a href="<?=Url::to('@web-module', ['id' => Session::get('files-debug-current'), 'type' => 'orm'])?>" class="list-group-item <?php if (\Gbox::getRequest()->get('type') == 'orm') echo 'active'; ?>">Orm</a>
 			<a href="<?=Url::to('@web-module', ['id' => Session::get('files-debug-current'), 'type' => 'model'])?>" class="list-group-item <?php if (\Gbox::getRequest()->get('type') == 'model') echo 'active'; ?>">Model</a>
@@ -15,10 +15,10 @@ use \Gbox\base\Session;
 	</div>
 	<div class="col-md-9">
 		<div class="panel-group" id="accordion-debug" role="tablist" aria-multiselectable="true">
-			<?php $i = 0; ?>
+			<?php $i = -1; ?>
 			<?php foreach (\Gbox::$components->debug->getData(Session::get('files-debug-current')) as $record): ?>
+				<?php if (\Gbox::getRequest()->get('type') != '' && $record['type'] != \Gbox::getRequest()->get('type')) continue; ?>
 				<?php $i++; ?>
-				<?php if (!empty(\Gbox::getRequest()->get('type')) && $record['type'] != \Gbox::getRequest()->get('type')) continue; ?>
 				<div class="panel panel-default">
 					<div class="panel-heading" role="tab" id="heading-<?=$i?>">
 						<h4 class="panel-title">
@@ -36,6 +36,15 @@ use \Gbox\base\Session;
 					</div>
 				</div>
 			<?php endforeach; ?>
+			<?php if ($i == -1): ?>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="heading--1">
+						<h4 class="panel-title">
+							No activity
+						</h4>
+					</div>
+				</div>
+			<?php endif; ?>
 		</div>
 		<div class="panel-group" id="accordion-debug-summary-parse" role="tabpanel" aria-multiselectable="true">
 			<div class="panel panel-default">
