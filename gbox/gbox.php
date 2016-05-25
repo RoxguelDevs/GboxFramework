@@ -17,7 +17,7 @@ use Gbox\exceptions\HttpException;
 use Gbox\exceptions\NotFoundHttpException;
 class Gbox
 {
-	const GBOX_VERSION = '0.1';
+	const GBOX_VERSION = '0.2';
 	public static $aliasRoutes = [];
 	public static $components;
 	public static $app;
@@ -330,9 +330,6 @@ class Gbox
 			/*=====  End of DEBUG  ======*/
 
 			$module = new $module_string;
-
-			$autoload = new Gbox\Autoload;
-			$autoload->addFilesByDir(Url::to('@models/'));
 		}
 		else
 		{
